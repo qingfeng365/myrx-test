@@ -1,0 +1,17 @@
+
+<h3>例1:</h3>
+<p>一个推送1,2，3,4数值的可观察对象，一旦它被订阅1,2，3,就会被推送，4则会在订阅发生一秒之后被推送，紧接着完成推送</p>
+<p>
+  <button (click)="onRun1()" class="btn btn-default">执行</button>&nbsp;
+  <button (click)="onRun1Other()" class="btn btn-default">执行(示例1的另一种写法)</button>
+</p>
+<h3>例2:</h3>
+<p>无观察者的订阅</p>
+<p>
+  <button (click)="onRun2()" class="btn btn-default">执行</button>
+</p>
+<h3>例3:</h3>
+<p>订阅后终止订阅,并清理资源</p>
+<p>
+  <button (click)="onRun3()" class="btn btn-default">执行</button>
+</p>

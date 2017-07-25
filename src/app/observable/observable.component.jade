@@ -1,0 +1,14 @@
+h3 例1:
+p 一个推送1,2，3,4数值的可观察对象，一旦它被订阅1,2，3,就会被推送，4则会在订阅发生一秒之后被推送，紧接着完成推送
+p
+  button.btn.btn-default((click)="onRun1()") 执行
+  | &nbsp;
+  button.btn.btn-default((click)="onRun1Other()") 执行(示例1的另一种写法)
+h3 例2:
+p 无观察者的订阅
+p
+  button.btn.btn-default((click)="onRun2()") 执行
+h3 例3:
+p 订阅后终止订阅,并清理资源
+p
+  button.btn.btn-default((click)="onRun3()") 执行
