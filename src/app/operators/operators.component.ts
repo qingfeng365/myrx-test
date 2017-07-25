@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import * as Rx from 'rxjs/Rx';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-operators',
@@ -8,9 +9,17 @@ import * as Rx from 'rxjs/Rx';
 })
 export class OperatorsComponent implements OnInit {
 
+
+  @ViewChild('input2')
+  input2: ElementRef;
+
+  input3: FormControl = new FormControl();
+
   constructor() { }
 
   ngOnInit() {
+    this.input2sub();
+    this.input3sub();
   }
   onRun1() {
     const multiplyByTen = function (input) {
@@ -35,5 +44,30 @@ export class OperatorsComponent implements OnInit {
     });
     const output = multiplyByTen(input);
     output.subscribe(x => console.log(x));
+  }
+  onRun2() {
+    Rx.Observable.from([1, 2, 3, 4])
+      .filter(value => value % 2 === 0)
+      .map(value => value * value)
+      .subscribe(
+      value => console.log(value),
+      error => console.error(error),
+      () => console.log('已结束.')
+      );
+  }
+  onInputByInput1(value) {
+    console.log('搜索:' + value);
+  }
+
+  input2sub() {
+    Rx.Observable.fromEvent(this.input2.nativeElement, 'input')
+      .debounceTime(500)
+      .subscribe(() => console.log('搜索:' + this.input2.nativeElement.value))
+  }
+
+  input3sub() {
+    this.input3.valueChanges
+      .debounceTime(500)
+      .subscribe(value => console.log('搜索:' + value));
   }
 }

@@ -4,3 +4,21 @@
 <p>
   <button (click)="onRun1()" class="btn btn-default">执行</button>
 </p>
+<hr/>
+<h3>例2:</h3>
+<p> 操作符链式示例 .from.filter.map.</p>
+<p>
+  <button (click)="onRun2()" class="btn btn-default">执行</button>
+</p>
+<hr/>
+<h3>例3:</h3>
+<p>事件监听常用操作符</p>
+<p>普通编辑框,原始事件:
+  <input #input1="" (input)="onInputByInput1(input1.value)"/>
+</p>
+<p>普通编辑框,Rx监听事件:
+  <input #input2=""/>
+</p>
+<p>angular编辑框,angular响应式监听事件:
+  <input [formControl]="input3"/>
+</p>

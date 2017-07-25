@@ -8,6 +8,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { SubjectComponent } from './subject/subject.component';
 import { OperatorsComponent } from './operators/operators.component';
 
+import {ReactiveFormsModule} from '@angular/forms';
+
 const routes: Routes = [
   {
     path: 'rxdemo',
@@ -44,7 +46,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
