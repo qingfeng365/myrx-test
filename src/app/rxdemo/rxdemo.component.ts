@@ -28,7 +28,9 @@ export class RxdemoComponent implements OnInit {
     Rx.Observable.fromEvent(this.demo2.nativeElement, 'click')
       .throttleTime(1000)
       .mapTo(1)
-      .scan(count => count + 1)
+      .scan(count => {
+        console.log('count:' + count);
+        return count + 1})
       .subscribe(count => console.log(`第 ${count} 次点击(demo2) ${new Date().toTimeString()}`));
 
     Rx.Observable.fromEvent(this.demo3.nativeElement, 'click')

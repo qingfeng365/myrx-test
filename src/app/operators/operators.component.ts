@@ -18,6 +18,8 @@ export class OperatorsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('ngOnInit - input2:');
+    console.log(this.input2);
     this.input2sub();
     this.input3sub();
   }
@@ -62,7 +64,11 @@ export class OperatorsComponent implements OnInit {
   input2sub() {
     Rx.Observable.fromEvent(this.input2.nativeElement, 'input')
       .debounceTime(500)
-      .subscribe(() => console.log('搜索:' + this.input2.nativeElement.value))
+      .subscribe((event: any) => {
+        console.log(event);
+        console.log(event.target.value)
+        console.log('搜索:' + this.input2.nativeElement.value)
+      })
   }
 
   input3sub() {

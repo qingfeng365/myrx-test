@@ -49,16 +49,28 @@ export class ObservableComponent implements OnInit {
     const observable: Rx.Observable<number> = Rx.Observable.create(onSubscription);
 
     const myobserver: Rx.Observer<number> = {
-      next: x => console.log('当前值: ' + x),
-      error: err => console.error('错误: ' + err),
-      complete: () => console.log('推送完成.'),
+      next: x => console.log('1当前值: ' + x),
+      error: err => console.error('1错误: ' + err),
+      complete: () => console.log('1推送完成.'),
     };
 
-    console.log('subscribe - 订阅前...');
+    console.log('subscribe - 订阅前... - 1');
 
     const subscription = observable.subscribe(myobserver);
 
-    console.log('subscribe - 订阅后...');
+    console.log('subscribe - 订阅后... - 1');
+
+    const myobserver2: Rx.Observer<number> = {
+      next: x => console.log('2当前值: ' + x),
+      error: err => console.error('2错误: ' + err),
+      complete: () => console.log('2推送完成.'),
+    };
+
+    console.log('subscribe - 订阅前... - 2');
+
+    const subscription2 = observable.subscribe(myobserver2);
+
+    console.log('subscribe - 订阅后... - 2');
   }
 
   onRun2() {
